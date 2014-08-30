@@ -8,7 +8,8 @@
 header('Content-Type: application/json');
 
 require_once('config.php');
-require_once('core.class.php');
+require_once('functions.php');
+require_once('classes/core.class.php');
 
 $core = new Core();
 $core->init();

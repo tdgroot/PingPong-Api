@@ -6,7 +6,6 @@
  * Time: 0:54
  */
 require_once('apiexception.class.php');
-require_once('functions.php');
 
 class Error {
 

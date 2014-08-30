@@ -6,10 +6,9 @@
  * Time: 23:06
  */
 function crash($error, $args = array()) {
-    ob_start();
-    var_dump($args);
-    $args = ob_get_clean();
-    $output = array('error' => $error, 'args' => $args);
+    $output = array('error' => $error);
+    if ($args)
+        $output['args'] = $args;
     $output = json_encode($output);
     echo $output;
     die();
