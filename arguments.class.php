@@ -8,21 +8,24 @@
  */
 class Arguments {
 
+    /** @var string */
     protected $method = '';
+    /** @var string */
     protected $action = '';
+    /** @var array */
     protected $data = array();
 
     public function Arguments() {
-        if (!isset($_POST['method'])) throw new ApiException(Error::$NO_METHOD);
-        if (!isset($_POST['action'])) throw new ApiException(Error::$NO_ACTION);
-        if (!isset($_POST['data'])) throw new ApiException(Error::$NO_DATA);
+        $this->init();
+    }
+
+    private function init() {
+        if (!isset($_POST['method'])) crash(Error::$NO_METHOD);
+        if (!isset($_POST['action'])) crash(Error::$NO_ACTION);
+        if (!isset($_POST['data'])) crash(Error::$NO_DATA);
         $this->method = $_POST['method'];
         $this->action = $_POST['action'];
         $this->data = $_POST['data'];
-    }
-
-    public function init() {
-        return true;
     }
 
     /**

@@ -14,6 +14,13 @@ class Session {
     }
 
     /**
+     * @param $socket Socket
+     */
+    public function setSocket($socket) {
+        $this->socket = $socket;
+    }
+
+    /**
      * @return Socket
      */
     public function getSocket() {

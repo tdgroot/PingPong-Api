@@ -18,6 +18,8 @@ class Core {
     protected $session = null;
     /** @var $socket Socket  */
     protected $socket = null;
+    /** @var $result string */
+    protected $result = '';
 
     public function Core() {
         $this->arguments = new Arguments();
@@ -30,6 +32,26 @@ class Core {
         } else {
             $this->socket = new Socket($this->arguments->getData());
         }
+        $this->session->setSocket($this->socket);
+    }
+
+    public function resolveData() {
+        $method = $this->arguments->getMethod();
+        $action = $this->arguments->getAction();
+        $data = $this->arguments->getData();
+        if ($method === 'send') {
+            $this->socket->send($action, $data);
+        } else if ($method === 'request') {
+
+        }
+    }
+
+    public function createResult() {
+
+    }
+
+    public function getResult() {
+        return $this->result;
     }
 
 }
