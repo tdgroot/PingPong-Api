@@ -15,7 +15,7 @@ class Socket {
     /**
      * @param $data array
      */
-    public function Socket($data) {
+    public function __construct($data) {
         $this->init($data);
     }
 

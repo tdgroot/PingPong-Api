@@ -9,6 +9,7 @@ require_once('arguments.class.php');
 require_once('error.class.php');
 require_once('socket.class.php');
 require_once('session.class.php');
+require_once('longpoll.class.php');
 
 class Core {
 
@@ -18,12 +19,15 @@ class Core {
     protected $session = null;
     /** @var $socket Socket  */
     protected $socket = null;
+    /** @var $longpoll LongPoll */
+    protected $longpoll = null;
     /** @var $result string */
     protected $result = '';
 
-    public function Core() {
+    public function __construct() {
         $this->arguments = new Arguments();
         $this->session = new Session();
+        $this->longpoll = new LongPoll();
     }
 
     public function init() {
@@ -42,7 +46,8 @@ class Core {
         if ($method === 'send') {
             $this->socket->send($action, $data);
         } else if ($method === 'request') {
-
+            $this->longpoll->init($action, $data);
+            $this->longpoll->start();
         }
     }
 

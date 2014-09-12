@@ -18,5 +18,6 @@ class Error {
     public static $FAIL_SOCKET_CREATE = 0x10;
     public static $FAIL_SOCKET_CONNECT = 0x11;
     public static $FAIL_SOCKET_SEND = 0x12;
+    public static $FAIL_SOCKET_READ = 0x13;
 
 }

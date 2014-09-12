@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: TIMONDESKTOP
@@ -9,7 +10,7 @@ class Session {
 
     protected $socket = null;
 
-    public function Session() {
+    public function __construct() {
 
     }
 

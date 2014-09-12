@@ -15,7 +15,7 @@ class Arguments {
     /** @var array */
     protected $data = array();
 
-    public function Arguments() {
+    public function __construct() {
         $this->init();
     }
 
@@ -25,7 +25,7 @@ class Arguments {
         if (!isset($_POST['data'])) crash(Error::$NO_DATA);
         $this->method = $_POST['method'];
         $this->action = $_POST['action'];
-        $this->data = $_POST['data'];
+        $this->data = json_decode($_POST['data']);
     }
 
     /**

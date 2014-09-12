@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: TIMONDESKTOP
@@ -7,7 +8,7 @@
  */
 class ApiException extends Exception {
 
-    public function ApiException($error, $code = 0, Exception $previous = null) {
+    public function __construct($error, $code = 0, Exception $previous = null) {
         $message = '' . $error . '';
         parent::__construct($message, $code, $previous);
     }
